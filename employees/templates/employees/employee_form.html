@@ -1,0 +1,17 @@
+<!-- employees/templates/employees/employee_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ form.instance.pk|yesno:"Edit Employee,New Employee" }}</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Edit Employee,New Employee" }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'employee_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
